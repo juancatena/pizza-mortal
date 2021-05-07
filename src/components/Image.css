@@ -1,0 +1,9 @@
+.image {
+  display: flex;
+  justify-content: center;
+}
+
+.image__img {
+  width: 250px;
+  object-fit: contain;
+}

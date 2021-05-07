@@ -1,0 +1,16 @@
+.navbar {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar__item {
+  margin-left: 25px;
+}
+
+.navbar__item:hover {
+  background-color: white;
+  color: black;
+}
