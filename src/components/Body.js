@@ -2,24 +2,22 @@ import React from "react";
 import Card from "./Card";
 import "./Body.css";
 import Products from ".././data/Products";
+import { connect } from "react-redux";
 
-function Body() {
+function Body({ products }) {
   return (
     <div className="body">
-      {Products.map((item) => {
-        return (
-          <Card
-            key={item.id}
-            image={item.image}
-            alt={item.alt}
-            title={item.title}
-            taste={item.taste}
-            price={item.price}
-          />
-        );
+      {products.map((prod) => {
+        return <Card key={prod.id} productData={prod} />;
       })}
     </div>
   );
 }
 
-export default Body;
+const mapStateToProps = (state) => {
+  return {
+    products: state.shop.products,
+  };
+};
+
+export default connect(mapStateToProps)(Body);
