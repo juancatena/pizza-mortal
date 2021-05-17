@@ -1,25 +1,38 @@
 import React from "react";
 import "./App.css";
-import ReactWhatsapp from "react-whatsapp";
 import Home from "./pages/Home";
 import Basket from "./pages/Basket";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
+import { connect } from "react-redux";
+import SingleItem from "./components/SingleItem";
 
-function App() {
+function App({ currentItem }) {
   return (
     <Router>
       <div className="app">
+        <Route exact path="/" component={Home} />
+        <Route exact path="/b" component={Basket} />
         <Switch>
-          <Route path="/b">
-            <Basket />
-          </Route>
-          <Route path="/">
-            <Home />
-          </Route>
+          {!currentItem ? (
+            <Redirect to="/" />
+          ) : (
+            <Route exact path="/product/:id" component={SingleItem} />
+          )}
         </Switch>
       </div>
     </Router>
   );
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    currentItem: state.shop.currentItem,
+  };
+};
+
+export default connect(mapStateToProps)(App);

@@ -23,3 +23,14 @@
 .card__taste {
   width: 100%;
 }
+
+.card__buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.card__button2 {
+  margin-top: 5px;
+}

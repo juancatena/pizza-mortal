@@ -1,0 +1,9 @@
+.basket__wpp {
+  width: auto;
+  height: auto;
+  background-color: green;
+  margin-left: 200px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  padding: 10px;
+}

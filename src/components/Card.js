@@ -1,7 +1,10 @@
 import React from "react";
 import "./Card.css";
+import { connect } from "react-redux";
+import { addToCart, loadCurrentItem } from "../redux/Shopping/shopping-actions";
+import { Link } from "react-router-dom";
 
-function Card({ productData }) {
+function Card({ productData, addToCart, loadCurrentItem }) {
   return (
     <div className="card">
       <img
@@ -12,9 +15,31 @@ function Card({ productData }) {
       <h2>{productData.title}</h2>
       <small className="card__taste">{productData.taste}</small>
       <p>$ {productData.price}</p>
-      <button className="card__button">Añadir a carrito</button>
+      <div className="card__buttons">
+        <Link to={`/product/${productData.id}`}>
+          <button
+            onClick={() => loadCurrentItem(productData)}
+            className="card__button2"
+          >
+            Ver mas
+          </button>
+        </Link>
+        <button
+          onClick={() => addToCart(productData.id)}
+          className="card__button"
+        >
+          Añadir a carrito
+        </button>
+      </div>
     </div>
   );
 }
 
-export default Card;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addToCart: (id) => dispatch(addToCart(id)),
+    loadCurrentItem: (item) => dispatch(loadCurrentItem(item)),
+  };
+};
+
+export default connect(null, mapDispatchToProps)(Card);

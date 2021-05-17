@@ -1,0 +1,33 @@
+.cardBasket__img {
+  width: 180px;
+}
+
+.cardBasket {
+  display: flex;
+  margin: 20px;
+}
+
+.cardBasket__left {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+  margin-right: 20px;
+  justify-content: space-between;
+}
+
+.cardBasket__right {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+  margin-right: 20px;
+  justify-content: center;
+}
+
+.cardBasket__price {
+  margin-bottom: 10px;
+}
+
+.cardBasket__input {
+  margin: 0px;
+  padding: 0px;
+}

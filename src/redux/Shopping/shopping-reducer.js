@@ -8,7 +8,7 @@ const INITIAL_STATE = {
       image:
         "https://placeralplato.com/files/2015/06/pizza-Margarita-640x480.jpg?width=1200&enable=upscale",
       taste: "Pomodoro, flor di latte, albahaca, aceite de oliva extra virgen.",
-      price: 500,
+      price: 500.0,
       alt: "margherita",
     },
     {
@@ -18,7 +18,7 @@ const INITIAL_STATE = {
         "https://speisekarte.menu/storage/media/contributions/2213801/Pizza-Marinara.jpg",
       taste:
         "Pomodoro, ajo, oregano, parmigiano, aceite de oliva extra virgen.",
-      price: 450,
+      price: 450.0,
       alt: "marinara",
     },
     {
@@ -27,7 +27,7 @@ const INITIAL_STATE = {
       image:
         "https://novecentoweb.com/images/made/local/images/main/171124-como-es-la-verdadera-pizza-napolitana_555_370_s_c1.jpg?v=1",
       taste: "Pomodoro, mozzarella, aceitunas, aceite de oliva extra virgen.",
-      price: 450,
+      price: 450.0,
       alt: "mozzarella",
     },
     {
@@ -37,7 +37,7 @@ const INITIAL_STATE = {
         "https://placeralplato.com/files/2016/01/Pizza-con-pepperoni-640x480.jpg?width=1200&enable=upscale",
       taste:
         "Pomodoro, fior di latte, pepperoni, parmigiano, aceite de oliva extra virgen.",
-      price: 550,
+      price: 550.0,
       alt: "pepperoni",
     },
   ],
@@ -74,7 +74,7 @@ const shopReducer = (state = INITIAL_STATE, action) => {
         ...state,
         cart: state.cart.map((item) =>
           item.id === action.payload.id
-            ? { ...item, qty: action.payload.qty }
+            ? { ...item, qty: +action.payload.qty }
             : item
         ),
       };
