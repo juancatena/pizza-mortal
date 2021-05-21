@@ -14,19 +14,19 @@ function Card({ productData, addToCart, loadCurrentItem }) {
       />
       <h2>{productData.title}</h2>
       <small className="card__taste">{productData.taste}</small>
-      <p>$ {productData.price}</p>
+      <p className="card__price">$ {productData.price}</p>
       <div className="card__buttons">
-        <Link to={`/product/${productData.id}`}>
+        {/* <Link to={`/product/${productData.id}`}>
           <button
             onClick={() => loadCurrentItem(productData)}
-            className="card__button2"
+            className="card__button1"
           >
             Ver mas
           </button>
-        </Link>
+        </Link>*/}
         <button
           onClick={() => addToCart(productData.id)}
-          className="card__button"
+          className="card__button2"
         >
           Añadir a carrito
         </button>

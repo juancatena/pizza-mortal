@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
-
+import Button from "@material-ui/core/Button";
+import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 import { connect } from "react-redux";
 
 function Navbar({ cart }) {
@@ -17,15 +18,17 @@ function Navbar({ cart }) {
   }, [cart, cartCount]);
 
   return (
-    <ul className="navbar">
-      <li className="navbar__item">Pizzas</li>
-      <li className="navbar__item">Historia</li>
-      <li className="navbar__item">
-        <Link to="/b" className="navbar__link">
-          Carrito {cartCount}
-        </Link>
-      </li>
-    </ul>
+    <div>
+      <div className="navbar">
+        <div className="navbar__item">¿Por qué pizza napoletana?</div>
+        <div className="navbar__item ">
+          <Link className="navbar__icon" to="/b">
+            <AddShoppingCartIcon className="navbar__icon" />
+            <p className="navbar__count">{cartCount}</p>
+          </Link>
+        </div>
+      </div>
+    </div>
   );
 }
 
